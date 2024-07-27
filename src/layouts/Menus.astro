@@ -1,0 +1,30 @@
+---
+import { Icon } from "astro-icon/components";
+import { menus, type PageID } from "../constants/menu";
+interface Props {
+  pageId: PageID;
+}
+
+const { pageId } = Astro.props;
+---
+
+<div class="p-6">
+  {
+    menus.map(({ iconName, label, id }) => {
+      const iconStrokeColor =
+        id === pageId ? "stroke-app-green" : "stroke-app-black";
+      const labelColor = id === pageId ? "text-app-green" : "text-app-black";
+
+      return (
+        <div class="flex flex-row w-[200px] py-2">
+          <Icon name={iconName} class={`text-2xl ${iconStrokeColor}`} />
+          <p
+            class={`ml-2 font-default text-sm font-semibold leading-6 text-left ${labelColor}`}
+          >
+            {label}
+          </p>
+        </div>
+      );
+    })
+  }
+</div>
