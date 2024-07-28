@@ -1,12 +1,15 @@
 ---
 import type { PageID } from "../constants/menu";
+import "../styles/index.css";
 import Footer from "./Footer.astro";
 import Menus from "./Menus.astro";
 import Navbar from "./Navbar.astro";
+import Path from "./Path.astro";
 interface Props {
   pageId: PageID;
 }
 
+// TODO: share pageId via context
 const { pageId } = Astro.props;
 ---
 
@@ -25,16 +28,12 @@ const { pageId } = Astro.props;
     <div class="static w-full main_section">
       <div class="flex flex-row">
         <Menus pageId={pageId} />
-        <slot />
+        <div class="p-6 w-full">
+          <Path pageId={pageId} />
+          <slot />
+        </div>
       </div>
       <Footer />
     </div>
   </body>
 </html>
-<style is:global>
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-  .main_section {
-    height: calc(100vh - 64px);
-    background: #0000000a;
-  }
-</style>

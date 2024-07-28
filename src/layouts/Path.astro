@@ -1,0 +1,16 @@
+---
+import { Icon } from "astro-icon/components";
+import type { PageID } from "../constants/menu";
+
+interface Props {
+  pageId: PageID;
+}
+
+const { pageId } = Astro.props;
+---
+
+<div class="flex flex-row gap-2 items-center mb-2">
+  <Icon name="home" class="text-2xl" />
+  <p class="text-app-bg-text text-sm">/</p>
+  <p class="text-app-bg-text text-sm">{pageId}</p>
+</div>
