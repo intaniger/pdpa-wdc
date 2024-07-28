@@ -2,15 +2,17 @@
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
-    fontFamily: {
-      default: ["Inter", "san-serif"],
+    extend: {
+      fontFamily: {
+        default: ["Inter", "san-serif"],
+      },
+      colors: {
+        "app-green": "#009540",
+        "app-black": "#000000D9",
+        "app-bg-text": "#00000040",
+        "app-button-border": "#00000026",
+      },
     },
-    colors: {
-      "app-green": "#009540",
-      "app-black": "#000000D9",
-      "app-gray": "#00000040",
-    },
-    extend: {},
   },
   plugins: [],
 };
