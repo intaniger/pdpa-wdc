@@ -1,10 +1,9 @@
 ---
 import { PageID } from "../constants/menu";
 import Layout from "../layouts/Layout.astro";
+import DataMapping from "./_DataMapping.svelte";
 ---
 
 <Layout pageId={PageID.DataMapping}>
-  <main>
-    <h1 class="text-3xl">Data Mapping</h1>
-  </main>
+  <DataMapping client:load />
 </Layout>

@@ -1,10 +1,10 @@
 export enum PageID {
-  DataMapping,
-  GovernanceDocument,
-  EmployeeAwareness,
-  DataProcessors,
-  SubjectAccessRequest,
-  DataBreachRegister,
+  DataMapping = "Data Mapping",
+  GovernanceDocument = "Governance Document",
+  EmployeeAwareness = "Employee Awareness",
+  DataProcessors = "Data Processors",
+  SubjectAccessRequest = "Subject Access Request",
+  DataBreachRegister = "Data Breach Register",
 }
 
 enum IconName {
