@@ -11,8 +11,12 @@ export default {
         "app-black": "#000000D9",
         "app-bg-text": "#00000040",
         "app-button-border": "#00000026",
+        "app-border-bottom": "#0000000F",
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light"],
+  },
 };

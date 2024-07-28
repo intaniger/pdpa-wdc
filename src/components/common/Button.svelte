@@ -32,8 +32,8 @@
       default:
         return {
           backgound: "bg-white",
-          border: "border-app-button-border",
-          text: "text-app-black",
+          border: "border-app-green",
+          text: "text-app-green",
         };
     }
   };
