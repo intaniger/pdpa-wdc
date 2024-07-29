@@ -34,6 +34,20 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
     });
   }
 
+  private mapApiResponseToPresentation({
+    data_subject_type,
+    department,
+    ...rest
+  }: PGRSTDataMapping): DataMappingPresentation {
+    return {
+      ...rest,
+      department: DataMappingDepartmentTranslation[department],
+      data_subject_type: data_subject_type?.map(
+        (subject_type) => DataMappingDataSubjectTypeTranslation[subject_type]
+      ),
+    };
+  }
+
   get(): ReadableAtom<WithMetadata<DataMappingPresentation[]>> {
     return computed(this.atom, (data) => {
       switch (data) {
@@ -42,14 +56,7 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
 
         default:
           return {
-            data: data.map(({ department, data_subject_type, ...rest }) => ({
-              ...rest,
-              department: DataMappingDepartmentTranslation[department],
-              data_subject_type: data_subject_type?.map(
-                (subject_type) =>
-                  DataMappingDataSubjectTypeTranslation[subject_type]
-              ),
-            })),
+            data: data.map(this.mapApiResponseToPresentation),
             status: "done",
           };
       }
