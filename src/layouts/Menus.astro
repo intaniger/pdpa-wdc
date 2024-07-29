@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon/components";
-import { menus, type PageID } from "../constants/menu";
+import { MENUS, type PageID } from "constants/menu";
 interface Props {
   pageId: PageID;
 }
@@ -10,7 +10,7 @@ const { pageId } = Astro.props;
 
 <div class="p-6">
   {
-    menus.map(({ iconName, label, id }) => {
+    MENUS.map(({ iconName, label, id }) => {
       const iconStrokeColor =
         id === pageId ? "stroke-app-green" : "stroke-app-black";
       const labelColor = id === pageId ? "text-app-green" : "text-app-black";

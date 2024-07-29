@@ -1,6 +1,11 @@
 {
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
-    "exactOptionalPropertyTypes": false
+    "exactOptionalPropertyTypes": false,
+    "baseUrl": "src/",
+    "paths": {
+      "@common/*": ["components/common/*"],
+      "@page-components/*": ["components/page/data_mapping/*"]
+    }
   }
 }

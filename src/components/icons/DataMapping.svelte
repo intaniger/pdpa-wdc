@@ -1,6 +1,6 @@
 <script lang="ts">
   import Icon, { type IconifyIcon } from "@iconify/svelte";
-  import DataMappingIcon from "../../icons/data_mapping.svg?raw";
+  import DataMappingIcon from "icons/data_mapping.svg?raw";
 
   export let className: string = "";
 

@@ -1,13 +1,13 @@
 import {
+  DataMappingApi,
+  type DataMapping as PGRSTDataMapping,
+} from "api/pgrst";
+import {
   atom,
   computed,
   type ReadableAtom,
   type WritableAtom,
 } from "nanostores";
-import {
-  DataMappingApi,
-  type DataMapping as PGRSTDataMapping,
-} from "../api/pgrst";
 import {
   DataMappingDataSubjectTypeTranslation,
   DataMappingDepartmentTranslation,

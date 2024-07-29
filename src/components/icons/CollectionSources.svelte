@@ -1,6 +1,6 @@
 <script lang="ts">
   import Icon, { type IconifyIcon } from "@iconify/svelte";
-  import CollectionSourcesIcon from "../../icons/collection.svg?raw";
+  import CollectionSourcesIcon from "icons/collection.svg?raw";
 
   export let className: string = "";
 

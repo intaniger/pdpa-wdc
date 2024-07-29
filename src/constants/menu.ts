@@ -22,7 +22,7 @@ interface MenuItem {
   label: string;
 }
 
-export const menus: MenuItem[] = [
+export const MENUS: MenuItem[] = [
   {
     id: PageID.DataMapping,
     iconName: IconName.DataMapping,

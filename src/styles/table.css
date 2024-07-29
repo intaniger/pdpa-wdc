@@ -3,25 +3,6 @@
 @tailwind utilities;
 
 @layer components {
-  .tabs > .tab-active {
-    border-color: #009540 !important;
-    p {
-      @apply text-sm font-default font-semibold;
-    }
-  }
-  .tabs-bordered > .tab:not(.tab-active) {
-    border: none;
-    p {
-      @apply text-sm font-default font-medium;
-    }
-  }
-  .tabs > .tab {
-    @apply gap-2 px-0 h-10 items-center;
-    svg {
-      @apply text-2xl stroke-app-black;
-    }
-  }
-
   .table :where(th) {
     @apply pb-3 pt-0 px-0;
   }
