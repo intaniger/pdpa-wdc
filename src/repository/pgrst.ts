@@ -11,7 +11,6 @@ import {
 import {
   DataMappingDataSubjectTypeTranslation,
   DataMappingDepartmentTranslation,
-  type DataMappingOperation,
   type DataMappingPresentation,
   type IDataMappingRepository,
   type WithMetadata,
@@ -47,7 +46,8 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
               ...rest,
               department: DataMappingDepartmentTranslation[department],
               data_subject_type: data_subject_type?.map(
-                (subject_type) => DataMappingDataSubjectTypeTranslation[subject_type]
+                (subject_type) =>
+                  DataMappingDataSubjectTypeTranslation[subject_type]
               ),
             })),
             status: "done",
@@ -55,10 +55,10 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
       }
     });
   }
-  create(entity: DataMappingOperation): Promise<void> {
+  create(): Promise<void> {
     throw new Error("Method not implemented.");
   }
-  filter(predicate: Partial<DataMappingOperation>): Promise<void> {
+  filter(): Promise<void> {
     throw new Error("Method not implemented.");
   }
 }

@@ -8,3 +8,7 @@
   height: calc(100vh - 64px);
   background: #0000000a;
 }
+
+p {
+  @apply font-default;
+}

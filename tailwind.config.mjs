@@ -12,7 +12,7 @@ export default {
         "app-bg-text": "#00000040",
         "app-button-border": "#00000026",
         "app-border-default": "#0000000F",
-        "app-table-header": "#00000073",
+        "app-table-metadata": "#00000073",
         "app-danger": "#F5222D",
       },
     },

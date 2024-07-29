@@ -51,35 +51,72 @@
       <div class="overflow-x-auto">
         <table class="table">
           <thead>
-            <tr class="font-default text-sm leading-6 text-app-table-header">
-              <th class="font-medium">Title</th>
-              <th class="font-medium">Description</th>
-              <th class="font-medium">Departments</th>
-              <th class="font-medium">Data Subject Types</th>
+            <tr class="font-default text-sm leading-6 text-app-table-metadata">
+              <th>
+                <div class="flex flex-row justify-between items-center">
+                  <p class="font-medium">Title</p>
+                  <Icon
+                    icon="uil:sort"
+                    class="m-1 w-4 h-4 text-app-table-metadata"
+                  />
+                </div>
+              </th>
+              <th>
+                <div class="flex flex-row justify-between items-center">
+                  <p class="font-medium">Description</p>
+                  <Icon
+                    icon="uil:sort"
+                    class="m-1 w-4 h-4 text-app-table-metadata"
+                  />
+                </div>
+              </th>
+              <th>
+                <div class="flex flex-row justify-between items-center">
+                  <p class="font-medium">Departments</p>
+                  <Icon
+                    icon="uil:sort"
+                    class="m-1 w-4 h-4 text-app-table-metadata"
+                  />
+                </div>
+              </th>
+              <th>
+                <div class="flex flex-row justify-between items-center">
+                  <p class="font-medium">Data Subject Types</p>
+                  <Icon
+                    icon="uil:sort"
+                    class="m-1 w-4 h-4 text-app-table-metadata"
+                  />
+                </div>
+              </th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             {#each $tableData.data as row}
               <tr class="font-default text-sm font-normal text-app-black">
-                <td class="min-w-52">{row.title}</td>
-                <td class="min-w-52">{row.description}</td>
-                <td class="min-w-52">{row.department}</td>
-                <td class="min-w-52">{row.data_subject_type?.join(", ")}</td>
-                <td class="flex flex-row gap-3">
+                <td>{row.title}</td>
+                <td>{row.description}</td>
+                <td>{row.department}</td>
+                <td>{row.data_subject_type?.join(", ")}</td>
+                <td class="flex flex-row gap-3 py-3 pl-6 max-w-[92px]">
                   <Icon
                     icon="mdi:edit-outline"
-                    class="text-base m-3 text-app-black"
+                    class="w-4 h-4 m-3 text-app-black"
                   />
                   <Icon
                     icon="mdi:delete-outline"
-                    class="text-base m-3 text-app-danger"
+                    class="w-4 h-4 m-3 text-app-danger"
                   />
                 </td>
               </tr>
             {/each}
           </tbody>
         </table>
+        <div class="w-full flex flex-row justify-end h-20 items-end">
+          <p class="font-normal text-sm text-app-table-metadata">
+            Showing 1-{$tableData.data.length} of {$tableData.data.length} results
+          </p>
+        </div>
       </div>
     {/if}
   </div>

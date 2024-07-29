@@ -22,11 +22,23 @@
     }
   }
 
-  .table :where(td) {
-    @apply pb-8;
+  .table :where(th) {
+    @apply pb-3 pt-0 px-0;
   }
 
-  .table :where(td):last-child {
-    @apply py-3 px-0 w-[92px];
+  .table :where(th:not(:first-child)) {
+    @apply pl-6;
+  }
+
+  .table :where(tr) {
+    @apply border-b border-app-border-default;
+  }
+
+  .table :where(td) {
+    @apply px-0 pb-8 pt-3 min-w-52;
+  }
+
+  .table :where(td:not(:first-child)) {
+    @apply pl-6;
   }
 }
