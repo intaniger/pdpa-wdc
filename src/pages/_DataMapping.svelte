@@ -56,7 +56,7 @@
               <th class="font-medium">Description</th>
               <th class="font-medium">Departments</th>
               <th class="font-medium">Data Subject Types</th>
-              <th class="min-w-24"></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -66,7 +66,7 @@
                 <td class="min-w-52">{row.description}</td>
                 <td class="min-w-52">{row.department}</td>
                 <td class="min-w-52">{row.data_subject_type?.join(", ")}</td>
-                <td class="flex flex-row gap-3 min-w-24">
+                <td class="flex flex-row gap-3">
                   <Icon
                     icon="mdi:edit-outline"
                     class="text-base m-3 text-app-black"

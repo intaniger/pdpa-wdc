@@ -21,4 +21,12 @@
       @apply text-2xl stroke-app-black;
     }
   }
+
+  .table :where(td) {
+    @apply pb-8;
+  }
+
+  .table :where(td):last-child {
+    @apply py-3 px-0 w-[92px];
+  }
 }
