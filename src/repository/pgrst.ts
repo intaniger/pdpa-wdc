@@ -4,12 +4,22 @@ import {
   type ReadableAtom,
   type WritableAtom,
 } from "nanostores";
-import { DataMappingApi, type DataMapping } from "../api/pgrst";
-import type { IDataMappingRepository, WithMetadata } from "./types";
+import {
+  DataMappingApi,
+  type DataMapping as PGRSTDataMapping,
+} from "../api/pgrst";
+import {
+  DataMappingDataSubjectTypeTranslation,
+  DataMappingDepartmentTranslation,
+  type DataMappingOperation,
+  type DataMappingPresentation,
+  type IDataMappingRepository,
+  type WithMetadata,
+} from "./types";
 
 export class PGRSTDataMappingRepository implements IDataMappingRepository {
   private readonly api: DataMappingApi;
-  private atom: WritableAtom<DataMapping[] | null>;
+  private atom: WritableAtom<PGRSTDataMapping[] | null>;
 
   /**
    * Initialize PGRST Repository
@@ -25,21 +35,30 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
     });
   }
 
-  get(): ReadableAtom<WithMetadata<DataMapping[]>> {
+  get(): ReadableAtom<WithMetadata<DataMappingPresentation[]>> {
     return computed(this.atom, (data) => {
       switch (data) {
         case null:
           return { data: null, status: "loading" };
 
         default:
-          return { data, status: "done" };
+          return {
+            data: data.map(({ department, data_subject_type, ...rest }) => ({
+              ...rest,
+              department: DataMappingDepartmentTranslation[department],
+              data_subject_type: data_subject_type?.map(
+                (subject_type) => DataMappingDataSubjectTypeTranslation[subject_type]
+              ),
+            })),
+            status: "done",
+          };
       }
     });
   }
-  create(entity: DataMapping): Promise<void> {
+  create(entity: DataMappingOperation): Promise<void> {
     throw new Error("Method not implemented.");
   }
-  filter(predicate: Partial<DataMapping>): Promise<void> {
+  filter(predicate: Partial<DataMappingOperation>): Promise<void> {
     throw new Error("Method not implemented.");
   }
 }

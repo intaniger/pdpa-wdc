@@ -56,17 +56,17 @@
               <th class="font-medium">Description</th>
               <th class="font-medium">Departments</th>
               <th class="font-medium">Data Subject Types</th>
-              <th class="w-24"></th>
+              <th class="min-w-24"></th>
             </tr>
           </thead>
           <tbody>
             {#each $tableData.data as row}
               <tr class="font-default text-sm font-normal text-app-black">
-                <td class="min-w-44">{row.title}</td>
-                <td class="min-w-44">{row.description}</td>
-                <td class="min-w-44">{row.department}</td>
-                <td class="min-w-44">{row.data_subject_type}</td>
-                <td class="flex flex-row gap-3">
+                <td class="min-w-52">{row.title}</td>
+                <td class="min-w-52">{row.description}</td>
+                <td class="min-w-52">{row.department}</td>
+                <td class="min-w-52">{row.data_subject_type?.join(", ")}</td>
+                <td class="flex flex-row gap-3 min-w-24">
                   <Icon
                     icon="mdi:edit-outline"
                     class="text-base m-3 text-app-black"
