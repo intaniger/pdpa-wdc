@@ -1,0 +1,17 @@
+version: "3"
+services:
+  pg:
+    image: postgres:16.3
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=$PDPA_WDC_PG_PASSWORD
+    volumes:
+      - ./db/:/docker-entrypoint-initdb.d/
+  pgrst:
+    image: postgrest/postgrest
+    ports:
+      - 3000:3000
+    environment:
+      - PGRST_DB_URI=postgres://postgres:$PDPA_WDC_PG_PASSWORD@pg:5432/postgres
+      - PGRST_DB_ANON_ROLE=postgres
