@@ -13,15 +13,15 @@
  */
 
 
-import type { AxiosInstance, AxiosPromise, RawAxiosRequestConfig } from 'axios';
-import globalAxios from 'axios';
 import type { Configuration } from './configuration';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
+import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
 import type { RequestArgs } from './base';
-import { DUMMY_BASE_URL, createRequestFunction, serializeDataIfNeeded, setSearchParams, toPathString } from './common';
 // @ts-ignore
-import { BASE_PATH, BaseAPI, RequiredError, operationServerMap } from './base';
+import { BASE_PATH, COLLECTION_FORMATS, BaseAPI, RequiredError, operationServerMap } from './base';
 
 /**
  * 
@@ -55,10 +55,10 @@ export interface DataMapping {
     'department': DataMappingDepartmentEnum;
     /**
      * 
-     * @type {string}
+     * @type {Array<string>}
      * @memberof DataMapping
      */
-    'data_subject_type'?: DataMappingDataSubjectTypeEnum[];
+    'data_subject_type'?: Array<string>;
 }
 
 export const DataMappingDepartmentEnum = {
@@ -69,13 +69,6 @@ export const DataMappingDepartmentEnum = {
 } as const;
 
 export type DataMappingDepartmentEnum = typeof DataMappingDepartmentEnum[keyof typeof DataMappingDepartmentEnum];
-export const DataMappingDataSubjectTypeEnum = {
-    Employee: 'EMPLOYEE',
-    FacultyStaff: 'FACULTY_STAFF',
-    Student: 'STUDENT'
-} as const;
-
-export type DataMappingDataSubjectTypeEnum = typeof DataMappingDataSubjectTypeEnum[keyof typeof DataMappingDataSubjectTypeEnum];
 
 
 /**

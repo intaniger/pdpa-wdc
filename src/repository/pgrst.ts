@@ -43,7 +43,10 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
       ...rest,
       department: DataMappingDepartmentTranslation[department],
       data_subject_type: data_subject_type?.map(
-        (subject_type) => DataMappingDataSubjectTypeTranslation[subject_type]
+        (subject_type) =>
+          DataMappingDataSubjectTypeTranslation[
+            subject_type as keyof typeof DataMappingDataSubjectTypeTranslation
+          ]
       ),
     };
   }

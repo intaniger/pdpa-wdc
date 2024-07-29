@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "openapi-generate": "npx @openapitools/openapi-generator-cli generate -i $PDPA_WDC_PGRST_ENDPOINT -g typescript-axios -o src/api/pgrst"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.3",
