@@ -15,13 +15,27 @@
   const repo = getContext<IDataMappingRepository>(
     CONTEXT_KEY_DATA_MAPPING_REPOSITORY
   );
-  const onClose = () => dispatch(EVENTS.CLOSE_FORM);
 
   // Form Data
   let title: string;
   let description: string;
   let department: keyof typeof DataMappingDepartmentTranslation;
   let subjectTypes: Set<keyof typeof DataMappingDataSubjectTypeTranslation>;
+
+  const resetForm = () => {
+    title = undefined as unknown as string;
+    description = undefined as unknown as string;
+    department =
+      undefined as unknown as keyof typeof DataMappingDepartmentTranslation;
+    subjectTypes = new Set<
+      keyof typeof DataMappingDataSubjectTypeTranslation
+    >();
+  };
+
+  const onClose = () => {
+    resetForm();
+    dispatch(EVENTS.CLOSE_FORM);
+  };
 
   const onCreate = async () => {
     await repo.create({
@@ -30,6 +44,7 @@
       department,
       data_subject_type: [...subjectTypes],
     });
+    resetForm();
     dispatch(EVENTS.CLOSE_FORM);
   };
 </script>
