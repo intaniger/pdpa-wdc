@@ -12,10 +12,11 @@ export default {
         "app-bg-text": "#00000040",
         "app-input-border": "#00000026",
         "app-border-default": "#0000000F",
-        "app-table-metadata": "#00000073",
+        "app-title-text": "#00000073",
         "app-danger": "#F5222D",
-        "app-drawer-header-border": "#0F172A0F",
+        "app-drawer-border": "#0F172A0F",
         "app-drawer-overlay": "#00000033",
+        "app-checkbox-border-color": "#0F172A26",
       },
       spacing: {
         "drawer-width": "340px",

@@ -84,7 +84,7 @@
 </script>
 
 <div
-  class="border-b border-app-drawer-header-border h-16 flex flex-row items-center px-6 justify-between"
+  class="border-b border-app-drawer-border h-16 flex flex-row items-center px-6 justify-between"
 >
   <p class="text-base font-semibold text-app-black">New Data</p>
   <div class="flex flex-row gap-x-3">

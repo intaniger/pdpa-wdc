@@ -1,3 +1,9 @@
 {
-  "conventionalCommits.scopes": ["layout", "page.mapping", "backend", "create"]
+  "conventionalCommits.scopes": [
+    "layout",
+    "page.mapping",
+    "backend",
+    "create",
+    "filter"
+  ]
 }
