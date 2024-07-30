@@ -53,12 +53,6 @@ export interface DataMappingPresentation {
 
 export interface DataMappingOperation {
   /**
-   * Note: This is a Primary Key.<pk/>
-   * @type {string}
-   * @memberof DataMapping
-   */
-  id: string;
-  /**
    *
    * @type {string}
    * @memberof DataMapping

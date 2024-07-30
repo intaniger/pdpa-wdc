@@ -11,6 +11,7 @@ import {
 import {
   DataMappingDataSubjectTypeTranslation,
   DataMappingDepartmentTranslation,
+  type DataMappingOperation,
   type DataMappingPresentation,
   type IDataMappingRepository,
   type WithMetadata,
@@ -65,8 +66,14 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
       }
     });
   }
-  create(): Promise<void> {
-    throw new Error("Method not implemented.");
+  async create(entity: DataMappingOperation) {
+    await this.api.dataMappingPost(
+      undefined,
+      "return=representation",
+      entity as PGRSTDataMapping
+    );
+    const { data } = await this.api.dataMappingGet();
+    this.atom.set(data);
   }
   filter(): Promise<void> {
     throw new Error("Method not implemented.");

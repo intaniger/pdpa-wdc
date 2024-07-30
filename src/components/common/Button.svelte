@@ -5,35 +5,42 @@
     text: string;
   };
 
-  type Variant = "primary" | "secondary" | "semi";
+  type Variant = "primary" | "secondary" | "semi" | "flat";
   import Icon from "@iconify/svelte";
 
   export let variant: Variant;
   export let label: string;
-  export let iconName: string;
+  export let iconName: string = "";
+  export let className: string = "";
 
   const getColorSetFromVariant = (v: Variant): Colors => {
     switch (v) {
       case "primary":
         return {
           backgound: "bg-app-green",
-          border: "border-app-button-border",
+          border: "border-app-input-border",
           text: "text-white",
         };
 
       case "secondary":
         return {
           backgound: "bg-white",
-          border: "border-app-button-border",
+          border: "border-app-input-border",
           text: "text-app-black",
         };
 
       case "semi":
-      default:
         return {
           backgound: "bg-white",
           border: "border-app-green",
           text: "text-app-green",
+        };
+
+      case "flat":
+        return {
+          backgound: "bg-white",
+          border: "border-none",
+          text: "text-app-black",
         };
     }
   };
@@ -42,8 +49,11 @@
 </script>
 
 <button
-  class={`flex flex-row items-center px-3 py-2 gap-2 h-10 ${backgound} border rounded-md ${border} font-default ${text}`}
+  class="flex flex-row items-center px-3 py-2 gap-2 h-10 {backgound} border rounded-md {border} font-default {text} {className}"
+  on:click
 >
-  <Icon icon={iconName} class="text-base" />
+  {#if iconName}
+    <Icon icon={iconName} class="text-base" />
+  {/if}
   <p class="text-sm font-medium">{label}</p>
 </button>
