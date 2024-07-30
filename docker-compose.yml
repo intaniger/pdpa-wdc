@@ -15,3 +15,12 @@ services:
     environment:
       - PGRST_DB_URI=postgres://postgres:$PDPA_WDC_PG_PASSWORD@pg:5432/postgres
       - PGRST_DB_ANON_ROLE=postgres
+  front-end:
+    build:
+      context: .
+      args:
+        - PUBLIC_PDPA_WDC_PGRST_ENDPOINT=$PUBLIC_PDPA_WDC_PGRST_ENDPOINT
+    depends_on:
+      - pgrst
+    ports:
+      - 80:80
