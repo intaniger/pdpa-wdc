@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-  .tabs > .tab-active {
+  .tabs-bordered > .tab-active {
     border-color: #009540 !important;
     p {
       @apply text-sm font-default font-semibold;
@@ -15,18 +15,23 @@
       @apply text-sm font-default font-medium;
     }
   }
-  .tabs > .tab {
-    @apply gap-2 px-0 h-10 items-center py-2;
+
+  .tabs-bordered > .tab-content {
+    @apply !border-x-0 border-t border-t-app-border-default;
+  }
+
+  .tabs-bordered > .tab {
+    @apply flex gap-x-2 px-0 py-2 items-center h-10;
     svg {
       @apply text-2xl stroke-app-black;
     }
   }
 
-  .tabs > .tab-content {
-    @apply border-t border-t-app-border-default;
+  .tabs-bordered > .tab:first-child {
+    @apply min-w-32;
   }
 
-  .tabs > .tab:not(:first-child) {
-    @apply ml-6;
+  .tabs-bordered > .tab:nth-child(3) {
+    @apply min-w-40 ml-6;
   }
 }
