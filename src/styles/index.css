@@ -9,6 +9,8 @@
   background: #0000000a;
 }
 
-p {
+p,
+input,
+label {
   @apply font-default;
 }
