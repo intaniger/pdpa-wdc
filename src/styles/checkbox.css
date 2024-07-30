@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .checkbox {
+    @apply !border-app-checkbox-border-color;
+    --chkbg: #009540 !important;
+  }
+}

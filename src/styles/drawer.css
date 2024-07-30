@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer components {
-  .drawer {
+  .drawer > .drawer-side {
     @apply z-20;
+  }
+
+  .drawer {
+    @apply !auto-cols-max;
   }
 
   .drawer-toggle:checked ~ .drawer-side > .drawer-overlay {

@@ -4,7 +4,7 @@
   import CreateDataForm from "./CreateDataForm.svelte";
 
   let checked: boolean = false;
-  const toggleDialog = () => (checked = !checked);
+  const openDialog = () => (checked = true);
   const closeDialog = () => (checked = false);
 </script>
 
@@ -20,7 +20,7 @@
       variant="primary"
       label="New Data"
       iconName="mdi:plus"
-      on:click={toggleDialog}
+      on:click={openDialog}
     />
   </div>
   <div class="drawer-side">

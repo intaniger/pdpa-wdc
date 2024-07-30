@@ -15,14 +15,14 @@
     <div class="overflow-x-auto">
       <table class="table">
         <thead>
-          <tr class="font-default text-sm leading-6 text-app-table-metadata">
+          <tr class="font-default text-sm leading-6 text-app-title-text">
             {#each DATA_MAPPING_TABLE_COLUMNS as colName}
               <th>
                 <div class="flex flex-row justify-between items-center">
                   <p class="font-medium">{colName}</p>
                   <Icon
                     icon="uil:sort"
-                    class="m-1 w-4 h-4 text-app-table-metadata"
+                    class="m-1 w-4 h-4 text-app-title-text"
                   />
                 </div>
               </th>
@@ -51,7 +51,7 @@
         </tbody>
       </table>
       <div class="w-full flex flex-row justify-end h-20 items-end">
-        <p class="font-normal text-sm text-app-table-metadata">
+        <p class="font-normal text-sm text-app-title-text">
           Showing 1-{$data.data.length} of {$data.data.length}
           results
         </p>
