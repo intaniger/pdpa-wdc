@@ -1,9 +1,6 @@
+import type DataMappingPresentation from "@model/presentation";
 import { atom, type ReadableAtom, type WritableAtom } from "nanostores";
-import type {
-  DataMappingPresentation,
-  IDataMappingRepository,
-  WithMetadata,
-} from "./types";
+import type { IDataMappingRepository, WithMetadata } from "./types";
 
 export class SSRDataMappingRepository implements IDataMappingRepository {
   private atom: WritableAtom<WithMetadata<DataMappingPresentation[]>> = atom({

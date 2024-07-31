@@ -1,3 +1,9 @@
+import type DataMappingCreation from "@model/creation";
+import DataMappingPresentation from "@model/presentation";
+import {
+  DataMappingDataSubjectTypeTranslation,
+  DataMappingDepartmentTranslation,
+} from "@model/translation";
 import {
   DataMappingApi,
   type DataMapping as PGRSTDataMapping,
@@ -8,14 +14,7 @@ import {
   type ReadableAtom,
   type WritableAtom,
 } from "nanostores";
-import {
-  DataMappingDataSubjectTypeTranslation,
-  DataMappingDepartmentTranslation,
-  type DataMappingOperation,
-  type DataMappingPresentation,
-  type IDataMappingRepository,
-  type WithMetadata,
-} from "./types";
+import { type IDataMappingRepository, type WithMetadata } from "./types";
 
 export class PGRSTDataMappingRepository implements IDataMappingRepository {
   private readonly api: DataMappingApi;
@@ -38,18 +37,22 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
   private mapApiResponseToPresentation({
     data_subject_type,
     department,
-    ...rest
+    id,
+    title,
+    description,
   }: PGRSTDataMapping): DataMappingPresentation {
-    return {
-      ...rest,
-      department: DataMappingDepartmentTranslation[department],
-      data_subject_type: data_subject_type?.map(
+    return new DataMappingPresentation(
+      id,
+      title,
+      DataMappingDepartmentTranslation[department],
+      data_subject_type?.map(
         (subject_type) =>
           DataMappingDataSubjectTypeTranslation[
             subject_type as keyof typeof DataMappingDataSubjectTypeTranslation
           ]
       ),
-    };
+      description
+    );
   }
 
   get(): ReadableAtom<WithMetadata<DataMappingPresentation[]>> {
@@ -66,12 +69,18 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
       }
     });
   }
-  async create(entity: DataMappingOperation) {
-    await this.api.dataMappingPost(
-      undefined,
-      "return=representation",
-      entity as PGRSTDataMapping
-    );
+  async create({
+    title,
+    department,
+    data_subject_type,
+    description,
+  }: DataMappingCreation) {
+    await this.api.dataMappingPost(undefined, "return=representation", {
+      title,
+      department,
+      data_subject_type,
+      description,
+    } as PGRSTDataMapping);
     const { data } = await this.api.dataMappingGet();
     this.atom.set(data);
   }

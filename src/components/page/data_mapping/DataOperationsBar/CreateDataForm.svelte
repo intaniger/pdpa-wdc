@@ -2,14 +2,14 @@
   import Button from "@common/Button.svelte";
   import InputGroup from "@common/InputGroup.svelte";
   import MultiSelect from "@common/MultiSelect.svelte";
-  import { AxiosError } from "axios";
-  import { CONTEXT_KEY_DATA_MAPPING_REPOSITORY } from "constants/contextKeys";
-  import EVENTS from "constants/events";
   import {
     DataMappingDataSubjectTypeTranslation,
     DataMappingDepartmentTranslation,
-    type IDataMappingRepository,
-  } from "repository/types";
+  } from "@model/translation";
+  import { AxiosError } from "axios";
+  import { CONTEXT_KEY_DATA_MAPPING_REPOSITORY } from "constants/contextKeys";
+  import EVENTS from "constants/events";
+  import { type IDataMappingRepository } from "repository/types";
   import { createEventDispatcher, getContext } from "svelte";
   import { z, ZodError } from "zod";
 

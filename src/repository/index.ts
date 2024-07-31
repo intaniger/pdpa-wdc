@@ -1,4 +1,4 @@
-import { SSRDataMappingRepository } from "./dummy";
+import { SSRDataMappingRepository } from "./ssr";
 import { PGRSTDataMappingRepository } from "./pgrst";
 import type { IDataMappingRepository } from "./types";
 
