@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  div.error > input,
+  div.error > textarea,
+  div.error > select {
+    @apply border !border-app-danger;
+  }
+}
