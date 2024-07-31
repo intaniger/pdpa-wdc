@@ -5,7 +5,8 @@
     "baseUrl": "src/",
     "paths": {
       "@common/*": ["components/common/*"],
-      "@page-components/*": ["components/page/data_mapping/*"]
+      "@page-components/*": ["components/page/data_mapping/*"],
+      "@model/*": ["models/data_mapping/*"]
     }
   }
 }
