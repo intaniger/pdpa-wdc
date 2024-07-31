@@ -57,7 +57,7 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
   constructor(
     baseUrl: string,
     private $filter = atom<DataMappingFiltering>({}),
-    private $valid = atom<boolean>(true),
+    private $valid = atom<boolean>(false),
     private $data = atom<PGRSTDataMapping[]>([])
   ) {
     this.api = new DataMappingApi(undefined, baseUrl);
