@@ -1,5 +1,5 @@
 import type DataMappingPresentation from "@model/presentation";
-import { atom, type ReadableAtom, type WritableAtom } from "nanostores";
+import { atom, type WritableAtom } from "nanostores";
 import type { IDataMappingRepository, WithMetadata } from "./types";
 
 export class SSRDataMappingRepository implements IDataMappingRepository {
@@ -8,9 +8,9 @@ export class SSRDataMappingRepository implements IDataMappingRepository {
     status: "loading",
   });
 
-  get(): ReadableAtom<WithMetadata<DataMappingPresentation[]>> {
+  get() {
     return this.atom;
   }
-  async create(): Promise<void> {}
-  async filter(): Promise<void> {}
+  async create() {}
+  filter() {}
 }

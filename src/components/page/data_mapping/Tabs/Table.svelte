@@ -1,8 +1,9 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
+  import type DataMappingPresentation from "@model/presentation";
   import { DATA_MAPPING_TABLE_COLUMNS } from "constants/tableHeaders";
   import type { ReadableAtom } from "nanostores";
-  import type { DataMappingPresentation, WithMetadata } from "repository/types";
+  import type { WithMetadata } from "repository/types";
   import "styles/table.css";
 
   export let data: ReadableAtom<WithMetadata<DataMappingPresentation[]>>;
