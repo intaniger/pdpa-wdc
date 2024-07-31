@@ -1,9 +1,22 @@
 <script lang="ts">
   import Button from "@common/Button.svelte";
+  import { CONTEXT_KEY_DATA_MAPPING_REPOSITORY } from "constants/contextKeys";
+  import type { IDataMappingRepository } from "repository/types";
   import "styles/drawer.css";
+  import { getContext } from "svelte";
   import FilterDataForm from "./FilterDataForm.svelte";
 
-  let checked: boolean = true;
+  let label = "Filter";
+  const repo = getContext<IDataMappingRepository>(
+    CONTEXT_KEY_DATA_MAPPING_REPOSITORY
+  );
+  repo.get().listen((data) => {
+    if (data.status === "done" && data.nFilters > 0)
+      label = `Filter (${data.nFilters})`;
+    else label = "Filter";
+  });
+
+  let checked: boolean = false;
   const openDialog = () => (checked = true);
   const closeDialog = () => (checked = false);
 </script>
@@ -18,9 +31,9 @@
   <div class="drawer-content w-fit">
     <Button
       variant="secondary"
-      label="Filter"
       iconName="mdi:filter-variant"
       on:click={openDialog}
+      {label}
     />
   </div>
   <div class="drawer-side">

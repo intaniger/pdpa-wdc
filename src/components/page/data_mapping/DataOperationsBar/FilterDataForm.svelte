@@ -8,16 +8,33 @@
   } from "@model/translation";
   import type { DataMappingDataSubjectTypeEnum } from "@model/type";
   import type { DataMappingDepartmentEnum } from "api/pgrst";
+  import { CONTEXT_KEY_DATA_MAPPING_REPOSITORY } from "constants/contextKeys";
+  import EVENTS from "constants/events";
+  import type { IDataMappingRepository } from "repository/types";
+  import { createEventDispatcher, getContext } from "svelte";
 
-  let text: string | undefined;
+  let textSearch: string | undefined;
   let departments: DataMappingDepartmentEnum[];
   let subjects: DataMappingDataSubjectTypeEnum[];
-  const onReset = () => {
-    text = undefined;
+  const dispatch = createEventDispatcher();
+  const repo = getContext<IDataMappingRepository>(
+    CONTEXT_KEY_DATA_MAPPING_REPOSITORY
+  );
+  const resetForm = () => {
+    textSearch = undefined;
     departments = [];
     subjects = [];
+    applyFilter();
   };
-  $: console.log(departments, subjects, text);
+
+  const applyFilter = () => {
+    repo.filter({
+      departments,
+      textSearch,
+      data_subject_types: subjects,
+    });
+    dispatch(EVENTS.CLOSE_FORM);
+  };
 </script>
 
 <div
@@ -28,8 +45,8 @@
     <p class="text-base font-semibold text-app-black">Filter</p>
   </div>
   <div class="flex flex-row gap-x-3">
-    <Button variant="flat" label="Reset" on:click={onReset} />
-    <Button variant="primary" label="Apply Filter" />
+    <Button variant="flat" label="Reset" on:click={resetForm} />
+    <Button variant="primary" label="Apply Filter" on:click={applyFilter} />
   </div>
 </div>
 <div class="flex flex-row px-4 py-3 gap-x-2 border-b border-app-drawer-border">
@@ -38,7 +55,7 @@
     id="text-filter"
     placeholder="Search filter"
     class="border-none font-default text-sm rounded-none focus:outline-none"
-    bind:value={text}
+    bind:value={textSearch}
   />
 </div>
 <div class="flex flex-col gap-y-3 py-4 px-6">
