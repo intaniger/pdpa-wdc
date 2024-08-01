@@ -19,7 +19,7 @@ const { pageId } = Astro.props;
       const labelColor = id === pageId ? "text-app-green" : "text-app-black";
 
       return (
-        <div class="flex flex-row w-[200px] py-2 gap-x-2 mobile:max-xl:min-w-fit">
+        <div class="flex flex-row xl:w-[200px] py-2 gap-x-2 mobile:max-xl:min-w-fit items-center">
           <Icon name={iconName} class={`text-2xl ${iconStrokeColor}`} />
           <p
             class={`font-default text-sm font-semibold leading-6 text-left ${labelColor}`}
