@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .icon-only-on-mobile > p {
+    @apply mobile:max-md:hidden;
+  }
+
+  .icon-only-on-mobile {
+    @apply mobile:max-md:py-3 mobile:max-md:w-10;
+  }
+}

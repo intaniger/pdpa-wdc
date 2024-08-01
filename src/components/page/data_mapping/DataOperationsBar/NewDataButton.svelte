@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from "@common/Button.svelte";
+  import "styles/data_mapping_bar.css";
   import "styles/drawer.css";
   import CreateDataForm from "./CreateDataForm.svelte";
 
@@ -8,18 +9,19 @@
   const closeDialog = () => (checked = false);
 </script>
 
-<div class="drawer drawer-end">
+<div class="drawer drawer-end flex grow">
   <input
     id="create-data-drawer"
     type="checkbox"
     class="drawer-toggle"
     bind:checked
   />
-  <div class="drawer-content">
+  <div class="drawer-content w-full">
     <Button
       variant="primary"
       label="New Data"
       iconName="mdi:plus"
+      className="w-full"
       on:click={openDialog}
     />
   </div>

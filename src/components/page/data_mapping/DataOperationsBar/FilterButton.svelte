@@ -2,6 +2,7 @@
   import Button from "@common/Button.svelte";
   import { CONTEXT_KEY_DATA_MAPPING_REPOSITORY } from "constants/contextKeys";
   import type { IDataMappingRepository } from "repository/types";
+  import "styles/data_mapping_bar.css";
   import "styles/drawer.css";
   import { getContext } from "svelte";
   import FilterDataForm from "./FilterDataForm.svelte";
@@ -32,6 +33,7 @@
     <Button
       variant="secondary"
       iconName="mdi:filter-variant"
+      className="icon-only-on-mobile"
       on:click={openDialog}
       {label}
     />
