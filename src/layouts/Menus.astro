@@ -10,7 +10,7 @@ const { pageId } = Astro.props;
 
 <div
   class="p-6 flex flex-col
-  mobile:max-xl:flex-row mobile:max-xl:gap-x-6 mobile:max-xl:h-14 mobile:max-xl:py-2 mobile:max-xl:px-6 mobile:max-xl:overflow-x-auto mobile:max-xl:border-b mobile:max-xl:border-app-border-default"
+  mobile:max-xl:flex-row mobile:max-xl:gap-x-6 mobile:max-xl:h-14 mobile:max-xl:py-2 mobile:max-xl:overflow-x-auto mobile:max-xl:border-b mobile:max-xl:border-app-border-default md:max-xl:px-6 mobile:max-md:px-4"
 >
   {
     MENUS.map(({ iconName, label, id }) => {

@@ -9,7 +9,7 @@
   setContext(CONTEXT_KEY_DATA_MAPPING_REPOSITORY, Repository());
 </script>
 
-<div class="flex flex-col gap-y-6">
+<div class="flex flex-col gap-y-6 mobile:max-md:gap-y-4">
   <DataOperationBar />
   <Tabs />
 </div>

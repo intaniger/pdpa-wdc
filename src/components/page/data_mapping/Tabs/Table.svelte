@@ -9,7 +9,9 @@
   export let data: ReadableAtom<WithMetadata<DataMappingPresentation[]>>;
 </script>
 
-<div class="p-6 bg-white border rounded-md border-app-border-default">
+<div
+  class="p-6 bg-white border rounded-md border-app-border-default mobile:max-md:p-4"
+>
   {#if $data.status === "loading"}
     <h1 class="text-2xl font-default">Loading...</h1>
   {:else if $data.status === "done"}
@@ -54,7 +56,7 @@
       </table>
     </div>
     <div
-      class="w-full flex flex-row justify-end h-20 items-end mobile:max-xl:h-12"
+      class="w-full flex flex-row justify-end h-20 items-end md:max-xl:h-12 mobile:max-md:h-10"
     >
       <p class="font-normal text-sm text-app-title-text">
         Showing 1-{$data.data.length} of {$data.data.length}
