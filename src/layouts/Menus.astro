@@ -8,7 +8,10 @@ interface Props {
 const { pageId } = Astro.props;
 ---
 
-<div class="p-6">
+<div
+  class="p-6 flex flex-col
+  mobile:max-xl:flex-row mobile:max-xl:gap-x-6 mobile:max-xl:h-14 mobile:max-xl:py-2 mobile:max-xl:px-6 mobile:max-xl:overflow-x-auto mobile:max-xl:border-b mobile:max-xl:border-app-border-default"
+>
   {
     MENUS.map(({ iconName, label, id }) => {
       const iconStrokeColor =
@@ -16,10 +19,10 @@ const { pageId } = Astro.props;
       const labelColor = id === pageId ? "text-app-green" : "text-app-black";
 
       return (
-        <div class="flex flex-row w-[200px] py-2">
+        <div class="flex flex-row w-[200px] py-2 gap-x-2 mobile:max-xl:min-w-fit">
           <Icon name={iconName} class={`text-2xl ${iconStrokeColor}`} />
           <p
-            class={`ml-2 font-default text-sm font-semibold leading-6 text-left ${labelColor}`}
+            class={`font-default text-sm font-semibold leading-6 text-left ${labelColor}`}
           >
             {label}
           </p>

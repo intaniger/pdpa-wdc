@@ -17,7 +17,7 @@
   }
 
   .tabs-bordered > .tab-content {
-    @apply !border-x-0 border-t border-t-app-border-default;
+    @apply !border-x-0 border-t border-t-app-border-default overflow-x-scroll;
   }
 
   .tabs-bordered > .tab {

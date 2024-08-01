@@ -13,7 +13,7 @@
   {#if $data.status === "loading"}
     <h1 class="text-2xl font-default">Loading...</h1>
   {:else if $data.status === "done"}
-    <div class="overflow-x-auto">
+    <div class="overflow-x-scroll">
       <table class="table">
         <thead>
           <tr class="font-default text-sm leading-6 text-app-title-text">
@@ -51,12 +51,14 @@
           {/each}
         </tbody>
       </table>
-      <div class="w-full flex flex-row justify-end h-20 items-end">
-        <p class="font-normal text-sm text-app-title-text">
-          Showing 1-{$data.data.length} of {$data.data.length}
-          results
-        </p>
-      </div>
+    </div>
+    <div
+      class="w-full flex flex-row justify-end h-20 items-end mobile:max-xl:h-12"
+    >
+      <p class="font-normal text-sm text-app-title-text">
+        Showing 1-{$data.data.length} of {$data.data.length}
+        results
+      </p>
     </div>
   {/if}
 </div>
