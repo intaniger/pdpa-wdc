@@ -7,6 +7,7 @@ export default {
         default: ["Inter", "san-serif"],
       },
       colors: {
+        "app-bg": "#0000000a",
         "app-green": "#009540",
         "app-black": "#000000D9",
         "app-bg-text": "#00000040",

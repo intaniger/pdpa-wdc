@@ -4,9 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (max-height: 804px) {
+  .main_section {
+    height: 100% !important;
+  }
+}
+
 .main_section {
-  height: calc(100vh - 64px);
-  background: #0000000a;
+  height: calc(100vh - 64px /* Navbar */ - 44px /* Footer */);
+  @apply bg-app-bg;
 }
 
 p,
