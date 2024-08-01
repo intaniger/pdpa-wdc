@@ -44,7 +44,7 @@
       aria-label="close sidebar"
       class="drawer-overlay"
     />
-    <div class="bg-white w-drawer-width h-full">
+    <div class="bg-white">
       <FilterDataForm on:CLOSE_FORM={closeDialog} />
     </div>
   </div>

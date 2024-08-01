@@ -22,4 +22,23 @@
   .drawer-toggle:checked ~ .drawer-side > div {
     box-shadow: 0px 2px 20px 0px #0000000f, 0px 1px 2px 0px #0000000f;
   }
+
+  .drawer .drawer-toggle ~ .drawer-side > div:not(.drawer-overlay) {
+    @apply w-drawer-width h-full;
+  }
+
+  @media (min-width: 320px) {
+    @media not all and (min-width: 768px) {
+      .drawer .drawer-toggle:checked ~ .drawer-side > div:not(.drawer-overlay) {
+        @apply w-full rounded-t-xl;
+        transform: translate(0, 64px) !important;
+        height: calc(100% - 64px);
+      }
+
+      .drawer .drawer-toggle ~ .drawer-side > div:not(.drawer-overlay) {
+        @apply w-full;
+        transform: translate(0, 100%) !important;
+      }
+    }
+  }
 }
