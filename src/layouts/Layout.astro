@@ -28,7 +28,7 @@ const { pageId } = Astro.props;
     <div class="w-full main_section">
       <div class="flex flex-row mobile:max-xl:flex-col">
         <Menus pageId={pageId} />
-        <div class="p-6 w-full">
+        <div class="p-6 w-full mobile:max-md:p-4">
           <Path pageId={pageId} />
           <slot />
         </div>

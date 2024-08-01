@@ -11,7 +11,9 @@
   );
 </script>
 
-<div class="flex flex-col gap-y-6 pt-6">
+<div
+  class="flex flex-col gap-y-6 pt-6 mobile:max-md:pt-4 mobile:max-md:gap-y-4"
+>
   <div class="flex flex-row gap-3">
     <EditButton />
     <VisualizeButton />
