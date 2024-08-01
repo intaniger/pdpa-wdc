@@ -8,7 +8,11 @@
   }
 
   .drawer {
-    @apply !auto-cols-max;
+    @apply !auto-cols-max max-w-fit;
+  }
+
+  .drawer.grow {
+    @apply !max-w-full;
   }
 
   .drawer-toggle:checked ~ .drawer-side > .drawer-overlay {

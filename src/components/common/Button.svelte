@@ -49,7 +49,7 @@
 </script>
 
 <button
-  class="flex flex-row items-center px-3 py-2 gap-2 h-10 {backgound} border rounded-md {border} font-default {text} {className}"
+  class="flex flex-row items-center justify-center px-3 py-2 gap-2 h-10 {backgound} border rounded-md {border} font-default {text} {className}"
   on:click
 >
   {#if iconName}
