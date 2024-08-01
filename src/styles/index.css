@@ -4,9 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (max-height: 768px) or (min-width: 768px) {
+@media (max-height: 804px) {
   .main_section {
-    height: 100% !important;
+    @apply md:!h-full;
   }
 }
 
