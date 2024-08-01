@@ -84,7 +84,7 @@
 </script>
 
 <div
-  class="border-b border-app-drawer-border h-16 flex flex-row items-center px-6 justify-between"
+  class="border-b border-app-drawer-border h-16 flex flex-row items-center px-6 justify-between mobile:max-md:px-4"
 >
   <p class="text-base font-semibold text-app-black">New Data</p>
   <div class="flex flex-row gap-x-3">
@@ -92,7 +92,7 @@
     <Button variant="primary" label="Save" on:click={onCreate} />
   </div>
 </div>
-<div class="py-4 px-6 flex flex-col gap-y-6">
+<div class="py-4 px-6 flex flex-col gap-y-6 mobile:max-md:px-4">
   {#if otherError}
     <div role="alert" class="alert alert-error">
       Failed to create data: {otherError}
