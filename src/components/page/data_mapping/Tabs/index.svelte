@@ -5,7 +5,7 @@
   import DataMappingTab from "./DataMappingTab.svelte";
 </script>
 
-<div role="tablist" class="tabs tabs-bordered">
+<div role="tablist" class="tabs tabs-bordered max-w-full overflow-x-hidden">
   <!-- svelte-ignore a11y-missing-attribute -->
   <a role="tab" class="tab tab-active">
     <DataMappingIcon />

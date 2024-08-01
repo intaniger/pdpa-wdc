@@ -25,6 +25,9 @@ export default {
       boxShadow: {
         textbox: "0px 1px 1px 0px #0000000A",
       },
+      screens: {
+        mobile: "320px",
+      },
     },
   },
   plugins: [require("daisyui")],

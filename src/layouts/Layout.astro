@@ -26,7 +26,7 @@ const { pageId } = Astro.props;
   <body>
     <Navbar />
     <div class="static w-full main_section">
-      <div class="flex flex-row">
+      <div class="flex flex-row mobile:max-xl:flex-col">
         <Menus pageId={pageId} />
         <div class="p-6 w-full">
           <Path pageId={pageId} />
