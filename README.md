@@ -1,54 +1,44 @@
-# Astro Starter Kit: Basics
+# Getting Deployed
+> [!NOTE]
+> You'll need [Docker](https://www.docker.com/) to run this project. <br />
+> It's also recommended that you have [BuildKit](https://docs.docker.com/build/buildkit/) installed on your machine in order to speed up a build process.
+
+
+## 1. Clone this repository
 
 ```sh
-npm create astro@latest -- --template basics
+git clone https://github.com/intaniger/pdpa-wdc.git
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 2. Setup the `.env` file
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+```sh
+echo PDPA_WDC_PG_PASSWORD=$(head -c 21 /dev/urandom | base64 | sed  's/\//+/g') > .env # random pg password
+echo PUBLIC_PDPA_WDC_PGRST_ENDPOINT=http://localhost:3000 >> .env
+```
+> [!NOTE] 
+> If you're using a non-linux operating system, please replace `$(head -c 21 /dev/urandom | base64 | sed  's/\//+/g')` with your own randomized password instead.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Each environment variable will affect the behavior of the system, as listed below:
 
-## 🚀 Project Structure
+| Environment Variable Name | How it is used? |
+| :---: | --- |
+| PDPA_WDC_PG_PASSWORD | The root PostgreSQL password is used to set up the `pg` service. <br />  The `pgrst` service also uses this variable in order to connect to `pg` before its startup. |
+| PUBLIC_PDPA_WDC_PGRST_ENDPOINT | HTTP URL of the `pgrst` service that will be locally available for the webpage to connect to in order to retrieve and create a new Data Mapping record |
 
-Inside of your Astro project, you'll see the following folders and files:
+## 3. `docker compose up`
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+As the title says, let's get it running!
+
+```sh
+docker compose up
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🏗️ Compose Components
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. `pg`: PostgreSQL, Relational Database, is used for record persistence.
+2. `pgrst`: [PostgREST](https://docs.postgrest.org/en/v12/), a standalone API server with zero setup that exposes database operations via the RESTful API.
+  > [!TIP]
+  > Q: Does this imply that I can do whatever is harmful to the database through this API?
+  > <br /> A: The configuration of `pgrst` uses a role `webuser`, which has restricted permissions; refer to [3.roles.sql](db/3.roles.sql) for further details.
+3. `front-end`: The main webpage, built with [Astro](https://astro.build/), [Svelte](https://svelte.dev/), [tailwindcss](https://tailwindcss.com/), and assistance from [daisyUI](https://daisyui.com/)
