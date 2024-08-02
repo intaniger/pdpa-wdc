@@ -23,7 +23,7 @@ Each environment variable will affect the behavior of the system, as listed belo
 
 | Environment Variable Name | How it is used? |
 | :---: | --- |
-| PDPA_WDC_PG_PASSWORD | Root PostgreSQL password for setting up the `pg` service. <br />  The `pgrst` service also uses this variable in order to connect to `pg` before its startup. |
+| PDPA_WDC_PG_PASSWORD | The root PostgreSQL password is used to set up the `pg` service. <br />  The `pgrst` service also uses this variable in order to connect to `pg` before its startup. |
 | PUBLIC_PDPA_WDC_PGRST_ENDPOINT | HTTP URL of the `pgrst` service that will be locally available for the webpage to connect to in order to retrieve and create a new Data Mapping record |
 
 ## 3. `docker compose up`
@@ -41,4 +41,4 @@ docker compose up
   > [!TIP]
   > Q: Does this imply that I can do whatever is harmful to the database through this API?
   > <br /> A: The configuration of `pgrst` uses a role `webuser`, which has restricted permissions; refer to [3.roles.sql](db/3.roles.sql) for further details.
-3. `front-end`: The main webpage, built with [Astro](https://astro.build/), [Svelte](https://svelte.dev/), [tailwindcss](https://tailwindcss.com/), and assitance from [daisyUI](https://daisyui.com/)
+3. `front-end`: The main webpage, built with [Astro](https://astro.build/), [Svelte](https://svelte.dev/), [tailwindcss](https://tailwindcss.com/), and assistance from [daisyUI](https://daisyui.com/)
