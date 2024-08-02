@@ -34,8 +34,6 @@ As the title says, let's get it running!
 docker compose up
 ```
 
-# 🚀 Project Structure
-
 ## 🏗️ Compose Components
 
 1. `pg`: PostgreSQL, Relational Database, is used for record persistence.
