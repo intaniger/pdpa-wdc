@@ -9,5 +9,5 @@
   label="Import"
   className="icon-only-on-mobile cursor-not-allowed"
 >
-  <ImportIcon />
+  <ImportIcon slot="icon" />
 </Button>

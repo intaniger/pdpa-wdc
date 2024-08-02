@@ -56,7 +56,7 @@
   {#if iconName}
     <Icon icon={iconName} class="text-base" />
   {:else}
-    <slot />
+    <slot name="icon" />
   {/if}
   <p class="text-sm font-medium">{label}</p>
 </button>

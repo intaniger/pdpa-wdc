@@ -4,5 +4,5 @@
 </script>
 
 <Button variant="secondary" label="Visualize" className="cursor-not-allowed">
-  <EyeIcon />
+  <EyeIcon slot="icon" />
 </Button>
