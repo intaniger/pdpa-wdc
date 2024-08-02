@@ -8,12 +8,12 @@ export enum PageID {
 }
 
 enum IconName {
-  DataMapping = "data_mapping",
-  Governance = "governance",
-  Employee = "employee",
-  DataProcessor = "data_processor",
-  SubjectAccessRequest = "subject_access_request",
-  DataBreach = "data_breach",
+  DataMapping = "menus/data_mapping",
+  Governance = "menus/governance",
+  Employee = "menus/employee",
+  DataProcessor = "menus/data_processor",
+  SubjectAccessRequest = "menus/subject_access_request",
+  DataBreach = "menus/data_breach",
 }
 
 interface MenuItem {
