@@ -17,7 +17,7 @@
   {#if $data.status === "loading"}
     <h1 class="text-2xl font-default">Loading...</h1>
   {:else if $data.status === "done"}
-    <div class="overflow-x-scroll">
+    <div class="overflow-scroll max-h-75 mobile:max-md:max-h-64">
       <table class="table">
         <thead>
           <tr class="font-default text-sm leading-6 text-app-title-text">

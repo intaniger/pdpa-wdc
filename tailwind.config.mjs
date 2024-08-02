@@ -23,6 +23,7 @@ export default {
         "drawer-width": "340px",
         19: "76px",
         35: "140px",
+        75: "300px",
       },
       boxShadow: {
         textbox: "0px 1px 1px 0px #0000000A",
