@@ -2,8 +2,9 @@ version: "3"
 services:
   pg:
     image: postgres:16.3
-    ports:
-      - 5432:5432
+    # === DISABLED BY DEFAULT ===
+    # ports:
+    #   - 5432:5432
     environment:
       - POSTGRES_PASSWORD=$PDPA_WDC_PG_PASSWORD
     volumes:
@@ -14,7 +15,7 @@ services:
       - 3000:3000
     environment:
       - PGRST_DB_URI=postgres://postgres:$PDPA_WDC_PG_PASSWORD@pg:5432/postgres
-      - PGRST_DB_ANON_ROLE=postgres
+      - PGRST_DB_ANON_ROLE=webuser
       - PGRST_DB_AGGREGATES_ENABLED=True
     depends_on:
       - pg
