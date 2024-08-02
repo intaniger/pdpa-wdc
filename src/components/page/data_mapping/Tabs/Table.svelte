@@ -59,7 +59,13 @@
       class="w-full flex flex-row justify-end h-20 items-end md:max-xl:h-12 mobile:max-md:h-10"
     >
       <p class="font-normal text-sm text-app-title-text">
-        Showing 1-{$data.data.length} of {$data.data.length}
+        Showing
+        {#if $data.data.length > 0}
+          1-{$data.data.length}
+        {:else}
+          0
+        {/if}
+        of {$data.nRecords}
         results
       </p>
     </div>

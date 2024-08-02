@@ -15,6 +15,7 @@ services:
     environment:
       - PGRST_DB_URI=postgres://postgres:$PDPA_WDC_PG_PASSWORD@pg:5432/postgres
       - PGRST_DB_ANON_ROLE=postgres
+      - PGRST_DB_AGGREGATES_ENABLED=True
     depends_on:
       - pg
   front-end:

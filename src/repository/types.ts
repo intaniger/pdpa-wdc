@@ -8,7 +8,7 @@ export type WithMetadata<T> =
       data: null;
       status: "loading";
     }
-  | { data: T; status: "done"; nFilters: number }
+  | { data: T; status: "done"; nFilters: number; nRecords: number }
   | { data: null; status: "error"; err: unknown };
 
 export interface IDataMappingRepository {

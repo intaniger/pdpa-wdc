@@ -9,6 +9,7 @@ import {
   DataMappingApi,
   type DataMapping as PGRSTDataMapping,
 } from "api/pgrst";
+import type { AxiosResponse } from "axios";
 import _ from "lodash";
 import { atom, batched, task, type ReadableAtom } from "nanostores";
 import { type IDataMappingRepository, type WithMetadata } from "./types";
@@ -58,17 +59,38 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
     baseUrl: string,
     private $filter = atom<DataMappingFiltering>({}),
     private $valid = atom<boolean>(false),
-    private $data = atom<PGRSTDataMapping[]>([])
+    private $data = atom<PGRSTDataMapping[]>([]),
+    private $count = atom<number>(0)
   ) {
     this.api = new DataMappingApi(undefined, baseUrl);
 
     task(async () => {
       const { data } = await this.api.dataMappingGet();
+      const count = await this.getTotalRecordsCount();
+
       this.$data.set(data);
       this.$valid.set(true);
+      this.$count.set(count);
     });
     this.invalidateOnceFilterHasBeenChanged();
     this.refreshDataOnceInvalidated();
+  }
+
+  private async getTotalRecordsCount(): Promise<number> {
+    const countResponse = await this.api.dataMappingGet(
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      undefined,
+      "count()"
+    );
+
+    const {
+      data: [{ count }],
+    } = countResponse as unknown as AxiosResponse<[{ count: number }]>;
+
+    return count;
   }
 
   private invalidateOnceFilterHasBeenChanged() {
@@ -108,9 +130,11 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
             },
           }
         );
+        const count = await this.getTotalRecordsCount();
 
         this.$data.set(data);
         this.$valid.set(true);
+        this.$count.set(count);
       }
     });
   }
@@ -139,8 +163,8 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
 
   get(): ReadableAtom<WithMetadata<DataMappingPresentation[]>> {
     return batched(
-      [this.$valid, this.$data, this.$filter],
-      (valid, data, filter) => {
+      [this.$valid, this.$data, this.$filter, this.$count],
+      (valid, data, filter, count) => {
         if (!valid) return { status: "loading", data: null };
         return {
           status: "done",
@@ -150,6 +174,7 @@ export class PGRSTDataMappingRepository implements IDataMappingRepository {
             if (typeof v === "string") return v.length > 0;
             return false;
           }).length,
+          nRecords: count,
         };
       }
     );
