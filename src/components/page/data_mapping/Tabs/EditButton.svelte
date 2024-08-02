@@ -4,5 +4,5 @@
 </script>
 
 <Button variant="semi" label="Edit" className="cursor-not-allowed">
-  <EditIcon />
+  <EditIcon slot="icon" />
 </Button>

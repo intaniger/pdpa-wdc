@@ -9,5 +9,5 @@
   label="Export"
   className="icon-only-on-mobile cursor-not-allowed"
 >
-  <ExportIcon />
+  <ExportIcon slot="icon" />
 </Button>

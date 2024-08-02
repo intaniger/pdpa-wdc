@@ -24,7 +24,7 @@
       className="w-full"
       on:click={openDialog}
     >
-      <PlusIcon />
+      <PlusIcon slot="icon" />
     </Button>
   </div>
   <div class="drawer-side">

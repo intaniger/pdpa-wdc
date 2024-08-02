@@ -37,7 +37,7 @@
       on:click={openDialog}
       {label}
     >
-      <FilterIcon />
+      <FilterIcon slot="icon" />
     </Button>
   </div>
   <div class="drawer-side">
