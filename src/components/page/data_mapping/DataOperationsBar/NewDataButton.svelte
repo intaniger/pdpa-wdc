@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from "@common/Button.svelte";
+  import PlusIcon from "components/icons/Plus.svelte";
   import "styles/data_mapping_bar.css";
   import "styles/drawer.css";
   import CreateDataForm from "./CreateDataForm.svelte";
@@ -20,10 +21,11 @@
     <Button
       variant="primary"
       label="New Data"
-      iconName="mdi:plus"
       className="w-full"
       on:click={openDialog}
-    />
+    >
+      <PlusIcon />
+    </Button>
   </div>
   <div class="drawer-side">
     <label

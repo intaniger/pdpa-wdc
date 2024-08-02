@@ -8,6 +8,7 @@
   } from "@model/translation";
   import type { DataMappingDataSubjectTypeEnum } from "@model/type";
   import type { DataMappingDepartmentEnum } from "api/pgrst";
+  import FilterIcon from "components/icons/Filter.svelte";
   import { CONTEXT_KEY_DATA_MAPPING_REPOSITORY } from "constants/contextKeys";
   import EVENTS from "constants/events";
   import type { IDataMappingRepository } from "repository/types";
@@ -41,7 +42,7 @@
   class="border-b border-app-drawer-border h-16 flex flex-row items-center px-6 justify-between mobile:max-md:px-4"
 >
   <div class="flex justify-start items-center gap-x-2">
-    <Icon icon="mdi:filter-variant" class="text-base" />
+    <FilterIcon />
     <p class="text-base font-semibold text-app-black">Filter</p>
   </div>
   <div class="flex flex-row gap-x-3">

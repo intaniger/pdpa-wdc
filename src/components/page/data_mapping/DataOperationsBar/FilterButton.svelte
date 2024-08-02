@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from "@common/Button.svelte";
+  import FilterIcon from "components/icons/Filter.svelte";
   import { CONTEXT_KEY_DATA_MAPPING_REPOSITORY } from "constants/contextKeys";
   import type { IDataMappingRepository } from "repository/types";
   import "styles/data_mapping_bar.css";
@@ -32,11 +33,12 @@
   <div class="drawer-content w-fit">
     <Button
       variant="secondary"
-      iconName="mdi:filter-variant"
       className="icon-only-on-mobile"
       on:click={openDialog}
       {label}
-    />
+    >
+      <FilterIcon />
+    </Button>
   </div>
   <div class="drawer-side">
     <label
