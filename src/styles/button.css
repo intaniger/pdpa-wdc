@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  button.icon-app-green > svg {
+    @apply stroke-app-green;
+  }
+}

@@ -7,6 +7,7 @@
 
   type Variant = "primary" | "secondary" | "semi" | "flat";
   import Icon from "@iconify/svelte";
+  import "styles/button.css";
 
   export let variant: Variant;
   export let label: string;
@@ -33,7 +34,7 @@
         return {
           backgound: "bg-white",
           border: "border-app-green",
-          text: "text-app-green",
+          text: "text-app-green icon-app-green",
         };
 
       case "flat":
@@ -49,11 +50,13 @@
 </script>
 
 <button
-  class="flex flex-row items-center justify-center px-3 py-2 gap-2 h-10 {backgound} border rounded-md {border} font-default {text} {className}"
+  class="flex flex-row items-center justify-center px-3 py-3 gap-2 h-10 {backgound} border rounded-md {border} font-default {text} {className}"
   on:click
 >
   {#if iconName}
     <Icon icon={iconName} class="text-base" />
+  {:else}
+    <slot />
   {/if}
   <p class="text-sm font-medium">{label}</p>
 </button>

@@ -1,6 +1,8 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
   import type DataMappingPresentation from "@model/presentation";
+  import DeleteIcon from "components/icons/Delete.svelte";
+  import EditIcon from "components/icons/Edit.svelte";
   import { DATA_MAPPING_TABLE_COLUMNS } from "constants/tableHeaders";
   import type { ReadableAtom } from "nanostores";
   import type { WithMetadata } from "repository/types";
@@ -41,13 +43,11 @@
               <td>{row.department}</td>
               <td>{row.data_subject_type?.join(", ")}</td>
               <td class="flex flex-row gap-3 py-3 pl-6 max-w-[92px]">
-                <Icon
-                  icon="mdi:edit-outline"
-                  class="w-4 h-4 m-3 text-app-black"
+                <EditIcon
+                  className="stroke-app-black m-3 w-4 h-4 cursor-not-allowed"
                 />
-                <Icon
-                  icon="mdi:delete-outline"
-                  class="w-4 h-4 m-3 text-app-danger"
+                <DeleteIcon
+                  className="stroke-app-danger m-3 w-4 h-4 cursor-not-allowed"
                 />
               </td>
             </tr>
