@@ -9,6 +9,11 @@ services:
       - POSTGRES_PASSWORD=$PDPA_WDC_PG_PASSWORD
     volumes:
       - ./db/:/docker-entrypoint-initdb.d/
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "postgres"]
+      interval: 1s
+      timeout: 3s
+      retries: 5
   pgrst:
     image: postgrest/postgrest
     ports:
@@ -18,7 +23,8 @@ services:
       - PGRST_DB_ANON_ROLE=webuser
       - PGRST_DB_AGGREGATES_ENABLED=True
     depends_on:
-      - pg
+      pg:
+        condition: service_healthy
   front-end:
     build:
       context: .
