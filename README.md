@@ -31,8 +31,10 @@ Each environment variable will affect the behavior of the system, as listed belo
 As the title says, let's get it running!
 
 ```sh
-docker compose up
+docker compose up -d && open http://localhost/
 ```
+
+The website will be opened at [localhost](http://localhost/).
 
 ## 🏗️ Compose Components
 
