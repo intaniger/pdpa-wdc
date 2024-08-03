@@ -7,7 +7,7 @@
 ## 1. Clone this repository
 
 ```sh
-git clone https://github.com/intaniger/pdpa-wdc.git
+git clone https://github.com/intaniger/pdpa-wdc.git && cd pdpa-wdc/
 ```
 
 ## 2. Setup the `.env` file
